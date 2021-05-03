@@ -1,0 +1,156 @@
+﻿<Window x:Class="Exap_14.view.TablAppraisalWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Exap_14.view"
+        mc:Ignorable="d"
+        Title="Таблица 'Оценка'" 
+        Height="600" 
+        Width="1350">
+
+    <Window.Resources>
+
+        <Style TargetType="TextBlock" x:Key="TextBlockBottom">
+
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Foreground" Value="#FFB0B0B0"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="Width" Value="85"/>
+            <Setter Property="Margin" Value="0 0 10 0"/>
+
+        </Style>
+        
+    </Window.Resources>
+    
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+        <!--Header-->
+        <Grid Grid.Row="0"
+              Background="Gainsboro">
+
+            <TextBlock Text="Таблица 'Оценка' (табличный вид)"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="28"
+                   Foreground="#FF5690C3"/>
+
+        </Grid>
+
+        <!--Main-->
+        <Grid Grid.Row="1">
+
+            <ScrollViewer VerticalScrollBarVisibility="Hidden"
+                          HorizontalScrollBarVisibility="Visible">
+
+                <DataGrid BorderThickness="2"
+                          BorderBrush="Transparent"
+                          Name="GridAppr"
+                          IsReadOnly="True"
+                          AutoGenerateColumns="False"
+                          FontSize="17"
+                          Background="#FFE6E6E6" SelectionChanged="GridAppr_SelectionChanged">
+
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn Header="ФИО студента"
+                                        Binding="{Binding Path=FIOStud}"
+                                        Width="350"/>
+
+                        <DataGridTextColumn Header="Дата экзамена 1"
+                                        Binding="{Binding Path=DateExam1}"
+                                        Width="160"/>
+
+                        <DataGridTextColumn Header="Предмет 1"
+                                        Binding="{Binding Path=Pred1}"
+                                        Width="200"/>
+
+                        <DataGridTextColumn Header="Оценка 1"
+                                        Binding="{Binding Path=Appr1}"/>
+
+                        <DataGridTextColumn Header="Дата экзамена 2"
+                                        Binding="{Binding Path=DateExam2}"
+                                        Width="160"/>
+
+                        <DataGridTextColumn Header="Предмет 2"
+                                        Binding="{Binding Path=Pred2}"
+                                        Width="200"/>
+
+                        <DataGridTextColumn Header="Оценка 2"
+                                        Binding="{Binding Path=Appr2}"/>
+
+                        <DataGridTextColumn Header="Дата экзамена 3"
+                                        Binding="{Binding Path=DateExam3}"
+                                        Width="160"/>
+
+                        <DataGridTextColumn Header="Предмет 3"
+                                        Binding="{Binding Path=Pred3}"
+                                        Width="200"/>
+
+                        <DataGridTextColumn Header="Оценка 3"
+                                        Binding="{Binding Path=Appr3}"/>
+
+                        <DataGridTextColumn Header="Средний балл"
+                                        Binding="{Binding Path=AvgAppr}"/>
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+            </ScrollViewer>
+
+        </Grid>
+
+        <!--Footer-->
+        <Grid Grid.Row="2"
+              Background="#FF323232">
+
+            <StackPanel HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Margin="5">
+
+                <StackPanel Orientation="Horizontal"
+                            Margin="0 0 0 15">
+
+                    <TextBlock Text="ФИО:"
+                               Style="{StaticResource TextBlockBottom}"/>
+
+                    <TextBlock Width="400"
+                               Foreground="AliceBlue"
+                               FontSize="15"
+                               Height="30"
+                               Background="#FF6C6C6C"
+                               Name="Combo"/>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+
+                    <TextBlock Text="Критерий:"
+                               Style="{StaticResource TextBlockBottom}"/>
+
+                    <TextBox Width="400"
+                             Height="30"
+                             Background="#FF6C6C6C"
+                             BorderThickness="0"
+                             VerticalContentAlignment="Center"
+                             Foreground="AliceBlue"
+                             Name="Crit"
+                             FontSize="15" TextChanged="Crit_TextChanged"/>
+
+                </StackPanel>
+
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+</Window>

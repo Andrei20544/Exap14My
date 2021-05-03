@@ -1,0 +1,168 @@
+﻿<Window x:Class="Exap_14.view.TabStudWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Exap_14.view"
+        mc:Ignorable="d"
+        Title="Таблица 'Студенты'" 
+        Height="600" 
+        Width="1200">
+    <Window.Resources>
+
+        <Style TargetType="TextBlock" x:Key="TextBlockBottom">
+
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Foreground" Value="#FFB0B0B0"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="Width" Value="85"/>
+            <Setter Property="Margin" Value="0 0 10 0"/>
+
+        </Style>
+
+    </Window.Resources>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+        <!--Header-->
+        <Grid Grid.Row="0"
+              Background="Gainsboro">
+
+            <TextBlock Text="Таблица 'Студенты' (табличный вид)"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="28"
+                   Foreground="#FF5690C3"/>
+
+        </Grid>
+
+        <!--Main-->
+        <Grid Grid.Row="1">
+
+            <ScrollViewer VerticalScrollBarVisibility="Hidden"
+                          HorizontalScrollBarVisibility="Visible">
+
+                <DataGrid BorderThickness="2"
+                          BorderBrush="Transparent"
+                          Name="GridAppr"
+                          IsReadOnly="True"
+                          AutoGenerateColumns="False"
+                          FontSize="17"
+                          Background="#FFE6E6E6" SelectionChanged="GridAppr_SelectionChanged_1">
+
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn Header="ФИО"
+                                        Binding="{Binding Path=FIO}"
+                                        Width="250"/>
+
+                        <DataGridTextColumn Header="Пол"
+                                        Binding="{Binding Path=POL}"
+                                        Width="120"/>
+
+                        <DataGridTextColumn Header="Дата рождения"
+                                        Binding="{Binding Path=DateOfBirth}"
+                                        Width="250"/>
+
+                        <DataGridTextColumn Header="Родители"
+                                        Binding="{Binding Path=Parents}"
+                                        Width="120"/>
+
+                        <DataGridTextColumn Header="Адрес"
+                                        Binding="{Binding Path=Adres}"
+                                        Width="250"/>
+
+                        <DataGridTextColumn Header="Телефон"
+                                        Binding="{Binding Path=Mobile}"
+                                        Width="120"/>
+
+                        <DataGridTextColumn Header="Паспортные данные"
+                                        Binding="{Binding Path=PassData}"
+                                        Width="250"/>
+
+                        <DataGridTextColumn Header="Номер зачетки"
+                                        Binding="{Binding Path=NumZ}"
+                                        Width="120"/>
+
+                        <DataGridTextColumn Header="Дата поступления"
+                                        Binding="{Binding Path=DateInvite}"
+                                        Width="250"/>
+
+                        <DataGridTextColumn Header="Группа"
+                                        Binding="{Binding Path=Group}"
+                                        Width="120"/>
+
+                        <DataGridTextColumn Header="Курс"
+                                        Binding="{Binding Path=Cours}"
+                                        Width="250"/>
+
+                        <DataGridTextColumn Header="Специальность"
+                                        Binding="{Binding Path=Spec}"
+                                        Width="120"/>
+
+                        <DataGridTextColumn Header="Очная форма обучения"
+                                        Binding="{Binding Path=OchForm}"
+                                        Width="250"/>
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+            </ScrollViewer>
+
+        </Grid>
+
+        <!--Footer-->
+        <Grid Grid.Row="2"
+              Background="#FF323232">
+
+            <StackPanel HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Margin="5">
+
+                <StackPanel Orientation="Horizontal"
+                            Margin="0 0 0 15">
+
+                    <TextBlock Text="ФИО:"
+                               Style="{StaticResource TextBlockBottom}"/>
+
+                    <TextBlock Width="400"
+                               Foreground="AliceBlue"
+                               FontSize="15"
+                               Height="30"
+                               Background="#FF6C6C6C"
+                               Name="Combo"/>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+
+                    <TextBlock Text="Критерий:"
+                               Style="{StaticResource TextBlockBottom}"/>
+
+                    <TextBox Width="400"
+                             Height="30"
+                             Background="#FF6C6C6C"
+                             BorderThickness="0"
+                             Foreground="AliceBlue"
+                             Name="Crit"
+                             FontSize="15" 
+                             VerticalContentAlignment="Center"
+                             TextChanged="Crit_TextChanged"/>
+
+                </StackPanel>
+
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+</Window>
